@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     static class Graph {
-        private List<Set<Integer>> adjList; // Usamos Set para evitar arestas duplicadas
+        private List<Set<Integer>> adjList; // Para evitar arestas duplicadas
         private int V;
 
         public Graph(List<List<Integer>> inputAdjList) {
@@ -19,7 +19,7 @@ public class Main {
         public boolean isValid() {
             for (int i = 0; i < V; i++) {
                 for (int neighbor : adjList.get(i)) {
-                    // Verifica se o vértice está dentro do intervalo válido
+                    // Verifica se o vértice está dentro do intervalo
                     if (neighbor < 0 || neighbor >= V) {
                         return false;
                     }
@@ -57,7 +57,7 @@ public class Main {
         Graph g2 = new Graph(invalidGraph1);
         System.out.println("Grafo inválido (auto-loop): " + g2.isValid());
 
-        // Grafo inválido: falta reciprocidade (0→1 mas 1↛0)
+        // Grafo inválido: falta (0→1 mas 1↛0)
         List<List<Integer>> invalidGraph2 = new ArrayList<>();
         invalidGraph2.add(Arrays.asList(1)); // 0
         invalidGraph2.add(Arrays.asList());  // 1
